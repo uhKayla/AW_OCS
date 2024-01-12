@@ -7,10 +7,10 @@ using VRC.SDK3.Dynamics.Contact.Components;
 
 namespace ANGELWARE.AW_OCS
 {
-    public static class AW_ContactSender
+    public class AW_ContactSender
     {
         /// <summary>
-        /// Factory for creating VRC contact senders.
+        ///     Factory for creating VRC contact senders.
         /// </summary>
         /// <param name="senderRoot">Object to add to</param>
         /// <param name="rootTransform">Root Transform Object</param>
@@ -20,30 +20,32 @@ namespace ANGELWARE.AW_OCS
         /// <param name="rotation">Rotation Offset (Quat)</param>
         /// <param name="collisionTags">List of Custom Collider Tags</param>
         /// <returns></returns>
-        public static VRCContactSender CreateContactSender(GameObject senderRoot, [CanBeNull] Transform rootTransform,
+        public VRCContactSender CreateContactSender(GameObject senderRoot, [CanBeNull] Transform rootTransform,
             int shapeType, float radius, Vector3 position, Vector3 rotation, List<string> collisionTags)
         {
-            VRCContactSender cS = senderRoot.GetComponent<VRCContactSender>();
-            
+            var cS = senderRoot.GetComponent<VRCContactSender>();
+
             var qRotation = Quaternion.Euler(rotation);
 
 
-            if (cS == null)
-            {
-                cS = senderRoot.AddComponent<VRCContactSender>();
-            }
-            
+            if (cS == null) cS = senderRoot.AddComponent<VRCContactSender>();
+
             ContactBase.ShapeType shape;
             switch (shapeType)
             {
-                case 0: shape = ContactBase.ShapeType.Sphere;
+                case 0:
+                    shape = ContactBase.ShapeType.Sphere;
                     break;
-                case 1: shape = ContactBase.ShapeType.Capsule;
+                case 1:
+                    shape = ContactBase.ShapeType.Capsule;
                     break;
-                default: shape = ContactBase.ShapeType.Sphere;
+                default:
+                    shape = ContactBase.ShapeType.Sphere;
                     break;
-            };
-            
+            }
+
+            ;
+
             cS.rootTransform = rootTransform;
             cS.shapeType = shape;
             cS.radius = radius;
