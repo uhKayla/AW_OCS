@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using ANGELWARE.AW_OCS;
 using nadena.dev.ndmf;
@@ -20,22 +21,22 @@ namespace ANGELWARE.AW_OCS
         {
             InPhase(BuildPhase.Generating).AfterPlugin("AW.APS")
                 .Run("AW_OCS Build Dynamics", ctx =>
-            {
-                _component = Object.FindObjectOfType<AW_OCS>();
-                if (_component == null) return;
-                _contactReceiver = new AW_ContactReceiver();
-                _contactSender = new AW_ContactSender();
+                {
+                    _component = Object.FindObjectOfType<AW_OCS>();
+                    if (_component == null) return;
+                    _contactReceiver = new AW_ContactReceiver();
+                    _contactSender = new AW_ContactSender();
                     
-                var worldGameObject = new GameObject("World");
-                var rootGameObject = new GameObject("OCS_Root");
-                rootGameObject.transform.SetParent(_component.transform);
+                    var worldGameObject = new GameObject("World");
+                    var rootGameObject = new GameObject("OCS_Root");
+                    rootGameObject.transform.SetParent(_component.transform);
                 
-                var senders = CreateSenders(worldGameObject);
-                senders.transform.SetParent(rootGameObject.transform);
+                    var senders = CreateSenders(worldGameObject);
+                    senders.transform.SetParent(rootGameObject.transform);
 
-                var receiver = CreateReceivers(worldGameObject);
-                receiver.transform.SetParent(rootGameObject.transform);
-            });
+                    var receiver = CreateReceivers(worldGameObject);
+                    receiver.transform.SetParent(rootGameObject.transform);
+                });
         }
 
         private GameObject CreateSenders(GameObject world)
@@ -151,3 +152,4 @@ namespace ANGELWARE.AW_OCS
         }
     }
 }
+#endif

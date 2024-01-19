@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using UnityEngine;
 using VRC.SDKBase;
 
@@ -16,3 +17,4 @@ namespace ANGELWARE.AW_OCS
         public float dickTouchRadius;
     }
 }
+#endif
