@@ -1,16 +1,22 @@
 {
-  "name": "com.angelware.ocs",
-  "references": [
-    "VRC.SDK3A",
-    "VRC.SDKBase",
-    "nadena.dev.ndmf"
-  ],
-  "includePlatforms": [],
-  "excludePlatforms": [],
-  "allowUnsafeCode": false,
-  "autoReferenced": true,
-  "overrideReferences": false,
-  "precompiledReferences": [],
-  "defineConstraints": [],
-  "optionalUnityReferences": []
+    "name": "com.angelware.ocs",
+    "rootNamespace": "",
+    "references": [
+        "VRC.SDK3A",
+        "VRC.SDKBase",
+        "nadena.dev.ndmf",
+        "AnimatorAsCode.V1",
+        "AnimatorAsCode.V1.VRChat",
+        "AnimatorAsCode.V1.NDMFProcessor",
+        "AnimatorAsCode.V1.ModularAvatar"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
