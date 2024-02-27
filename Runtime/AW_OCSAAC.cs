@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using System.Diagnostics;
 using ANGELWARE.AW_OCS;
 using AnimatorAsCode.V1;
@@ -198,3 +199,4 @@ namespace ANGELWARE.AW_OCS
     }
 
 }
+#endif
