@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System.Collections.Generic;
+using ANGELWARE.AW_APS;
 using JetBrains.Annotations;
 using UnityEngine;
 using VRC.Dynamics;
@@ -29,6 +30,7 @@ namespace ANGELWARE.AW_OCS
 
 
             if (cS == null) cS = senderRoot.AddComponent<VRCContactSender>();
+            senderRoot.AddComponent<AW_PatchMarker>();
 
             ContactBase.ShapeType shape;
             switch (shapeType)
